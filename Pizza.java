@@ -19,7 +19,7 @@ class Pizza {
         this.size = size;
     }
 
-    public void setChain(String name) {
+    public void setChainName(String name) {
         this.chainName = name;
     }
 
