@@ -2,8 +2,8 @@ package question1;
 class PizzaBuilder {
     private Pizza pizza;
 
-    public PizzaBuilder() {
-        this.pizza = new Pizza();
+    public PizzaBuilder(String size) {
+        this.pizza = new Pizza(size);
     }
 
     public PizzaBuilder setSize(String size) {

@@ -1,36 +1,32 @@
 package question1;
-
 public class PizzaDriver2 {
     public static void main(String[] args) {
-        //first pizza with 3 toppings on size small 
-        PizzaBuilder pizzaBuilder1 = new PizzaBuilder();
+        //PIZZA HUT
+        // Large + 3 toppings
+        PizzaBuilder pizzaBuilder1 = new PizzaBuilder("Large");
         pizzaBuilder1.setChainName("Pizza Hut");
-        pizzaBuilder1.setSize("Small");
-        pizzaBuilder1.addMushrooms();
-        pizzaBuilder1.addPepperoni();
-        pizzaBuilder1.addSausage();
+
+        pizzaBuilder1.addBacon();
+        pizzaBuilder1.addBeef();
+        pizzaBuilder1.addChicken();
+
         Pizza pizza1 = pizzaBuilder1.build();
         pizza1.eat();
 
-        //second pizza with 6 toppings on size medium  
-        PizzaBuilder pizzaBuilder2 = new PizzaBuilder();
+        // Small + 2 toppings
+        PizzaBuilder pizzaBuilder2 = new PizzaBuilder("Small");
         pizzaBuilder2.setChainName("Pizza Hut");
-        pizzaBuilder2.setSize("Medium");
 
-        pizzaBuilder2.addMushrooms();
-        pizzaBuilder2.addPepperoni();
-        pizzaBuilder2.addSausage();
         pizzaBuilder2.addBacon();
-        pizzaBuilder2.addOnions();
-        pizzaBuilder2.addExtraCheese();
+        pizzaBuilder2.addBeef();
 
         Pizza pizza2 = pizzaBuilder2.build();
         pizza2.eat();
 
-        //third pizza with 9 toppings on size large  
-        PizzaBuilder pizzaBuilder3 = new PizzaBuilder();
-        pizzaBuilder3.setChainName("Pizza Hut");
-        pizzaBuilder3.setSize("Large");
+        //LITTLE CEASARS
+        // Medium + 8 toppings
+        PizzaBuilder pizzaBuilder3 = new PizzaBuilder("Medium");
+        pizzaBuilder3.setChainName("Little Ceasars");
 
         pizzaBuilder3.addMushrooms();
         pizzaBuilder3.addPepperoni();
@@ -40,9 +36,44 @@ public class PizzaDriver2 {
         pizzaBuilder3.addExtraCheese();
         pizzaBuilder3.addPesto();
         pizzaBuilder3.addPeppers();
-        pizzaBuilder3.addOlives();
         
         Pizza pizza3 = pizzaBuilder3.build();
         pizza3.eat();
+        // Small + 6 toppings
+        PizzaBuilder pizzaBuilder4 = new PizzaBuilder("Small");
+        pizzaBuilder4.setChainName("Little Ceasars");
+
+        pizzaBuilder4.addMushrooms();
+        pizzaBuilder4.addPepperoni();
+        pizzaBuilder4.addSausage();
+        pizzaBuilder4.addBacon();
+        pizzaBuilder4.addOnions();
+        pizzaBuilder4.addExtraCheese();
+
+        Pizza pizza4 = pizzaBuilder4.build();
+        pizza4.eat();
+
+        //DOMINOS
+        // Small + 1 topping
+        PizzaBuilder pizzaBuilder5 = new PizzaBuilder("Small");
+        pizzaBuilder5.setChainName("Dominos");
+
+        pizzaBuilder5.addMushrooms();
+
+        Pizza pizza5 = pizzaBuilder5.build();
+        pizza5.eat();
+
+        // Large + 3 toppings
+        PizzaBuilder pizzaBuilder6 = new PizzaBuilder("Large");
+        pizzaBuilder6.setChainName("Dominos");
+
+        pizzaBuilder6.addMushrooms();
+        pizzaBuilder6.addPepperoni();
+        pizzaBuilder6.addSausage();
+
+        Pizza pizza6 = pizzaBuilder6.build();
+        pizza6.eat();
     }
 }
+
+

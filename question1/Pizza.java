@@ -8,7 +8,8 @@ class Pizza {
     private String size;
     private List<String> toppings;
 
-    public Pizza() {
+    public Pizza(String size) {
+        this.size = size;
         this.toppings = new ArrayList<>();
     }
 
