@@ -20,6 +20,12 @@ public class ProteinFactory {
 
     public Protein getProteinBasedOnDiet(String diet)
             throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        ArrayList<Class<? extends Protein>> noRestriction = new ArrayList<>();
+        noRestriction.add(ProteinFactory.Fish.class);
+        noRestriction.add(ProteinFactory.Chicken.class);
+        noRestriction.add(ProteinFactory.Chicken.class);
+        noRestriction.add(ProteinFactory.Beef.class);
+        
         ArrayList<Class<? extends Protein>> paleo = new ArrayList<>();
         paleo.add(ProteinFactory.Fish.class);
         paleo.add(ProteinFactory.Chicken.class);
@@ -34,11 +40,7 @@ public class ProteinFactory {
         nutAllergy.add(ProteinFactory.Chicken.class);
         nutAllergy.add(ProteinFactory.Beef.class);
 
-        ArrayList<Class<? extends Protein>> noRes = new ArrayList<>();
-        noRes.add(ProteinFactory.Fish.class);
-        noRes.add(ProteinFactory.Chicken.class);
-        noRes.add(ProteinFactory.Chicken.class);
-        noRes.add(ProteinFactory.Beef.class);
+        
 
         if (diet.equals("paleo")) {
             return paleo.get(RandIndex.random(paleo.size())).getDeclaredConstructor().newInstance();
@@ -47,7 +49,7 @@ public class ProteinFactory {
         } else if (diet.equals("nut allergy")) {
             return nutAllergy.get(RandIndex.random(nutAllergy.size())).getDeclaredConstructor().newInstance();
         } else {
-            return noRes.get(RandIndex.random(noRes.size())).getDeclaredConstructor().newInstance();
+            return noRestriction.get(RandIndex.random(noRestriction.size())).getDeclaredConstructor().newInstance();
         }
 
     }

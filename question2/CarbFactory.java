@@ -20,6 +20,12 @@ public class CarbFactory {
 
     public Carb getCarbs(String diet)
             throws IllegalAccessException, InstantiationException, InvocationTargetException, NoSuchMethodException {
+        ArrayList<Class<? extends Carb>> noRestriction = new ArrayList<>();
+        noRestriction.add(Cheese.class);
+        noRestriction.add(Bread.class);
+        noRestriction.add(Lentils.class);
+        noRestriction.add(Pistachio.class);
+        
         ArrayList<Class<? extends Carb>> paleo = new ArrayList<>();
         paleo.add(Pistachio.class);
 
@@ -33,11 +39,7 @@ public class CarbFactory {
         nutAllergy.add(Bread.class);
         nutAllergy.add(Lentils.class);
 
-        ArrayList<Class<? extends Carb>> noRes = new ArrayList<>();
-        noRes.add(Cheese.class);
-        noRes.add(Bread.class);
-        noRes.add(Lentils.class);
-        noRes.add(Pistachio.class);
+        
 
         if (diet.equals("paleo")) {
             return paleo.get(RandIndex.random(paleo.size())).getDeclaredConstructor().newInstance();
@@ -46,7 +48,7 @@ public class CarbFactory {
         } else if (diet.equals("nut allergy")) {
             return nutAllergy.get(RandIndex.random(nutAllergy.size())).getDeclaredConstructor().newInstance();
         } else {
-            return noRes.get(RandIndex.random(noRes.size())).getDeclaredConstructor().newInstance();
+            return noRestriction.get(RandIndex.random(noRestriction.size())).getDeclaredConstructor().newInstance();
         }
 
     }

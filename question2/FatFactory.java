@@ -19,6 +19,12 @@ public class FatFactory {
 
     public Fat getFats(String diet)
             throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        ArrayList<Class<? extends Fat>> noRestriction = new ArrayList<>();
+        noRestriction.add(FatFactory.Avocado.class);
+        noRestriction.add(FatFactory.SourCream.class);
+        noRestriction.add(FatFactory.Tuna.class);
+        noRestriction.add(FatFactory.Peanuts.class);
+        
         ArrayList<Class<? extends Fat>> paleo = new ArrayList<>();
         paleo.add(FatFactory.Avocado.class);
         paleo.add(FatFactory.Tuna.class);
@@ -33,11 +39,7 @@ public class FatFactory {
         nutAllergy.add(FatFactory.SourCream.class);
         nutAllergy.add(FatFactory.Tuna.class);
 
-        ArrayList<Class<? extends Fat>> noRes = new ArrayList<>();
-        noRes.add(FatFactory.Avocado.class);
-        noRes.add(FatFactory.SourCream.class);
-        noRes.add(FatFactory.Tuna.class);
-        noRes.add(FatFactory.Peanuts.class);
+        
 
         if (diet.equals("paleo")) {
             return paleo.get(RandIndex.random(paleo.size())).getDeclaredConstructor().newInstance();
@@ -46,7 +48,7 @@ public class FatFactory {
         } else if (diet.equals("nut allergy")) {
             return nutAllergy.get(RandIndex.random(nutAllergy.size())).getDeclaredConstructor().newInstance();
         } else {
-            return noRes.get(RandIndex.random(noRes.size())).getDeclaredConstructor().newInstance();
+            return noRestriction.get(RandIndex.random(noRestriction.size())).getDeclaredConstructor().newInstance();
         }
     }
 
